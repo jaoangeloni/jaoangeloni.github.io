@@ -20,7 +20,7 @@ body
 #first_line
 {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 5%;
     text-transform: uppercase;
     line-height: 60px;
@@ -61,6 +61,8 @@ span
     cursor: pointer;
     width: auto;
     transition: all 0.5s ;
+    transform-style: preserve-3d;
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
 }
 #b1
 {
@@ -97,7 +99,7 @@ span
     bottom: 5%;
     left: 5%;
     color: #fff200;
-    text-shadow: 0px 0.2rem 0px #fc6703,
+    text-shadow: 0px 0.15rem 0px #fc6703,
     0px -0.1rem 0.2rem #fceb03;;
     font-size: 1.5rem;
     font-weight: 1;
@@ -107,7 +109,7 @@ span
 {
     font-size: 1.5rem;
     color: #03fcd7;
-    text-shadow: 0px 0.2rem 0px #fc03a9,
+    text-shadow: 0px 0.15rem 0px #fc03a9,
     0px -0.1rem 0.2rem #03fcd7;
 }
 @keyframes texto
@@ -124,8 +126,7 @@ span
     height: 100vh;
     background-image: url(assets/62fa98b099d6ddc.png);
     background-size:contain;
-    filter: saturate(300%) brightness(100%) hue-rotate(-10deg);
-    animation: bg 100s linear infinite ;
+    animation: bg 30s linear infinite ;
 }
 @keyframes bg
 {
@@ -146,6 +147,11 @@ input
   }
 #pull:checked ~ #main
 {
-  display: block;
   top: 0;
 }
+#opcoes:checked ~ #options
+{
+  right: 5%;
+}
+
+
