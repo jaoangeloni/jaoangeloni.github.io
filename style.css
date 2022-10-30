@@ -1,14 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=VT323&display=swap');
 *
 {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'VT323', monospace;
+    list-style: none;
+}
+body
+{
+    overflow: hidden;
+}
+.start_menu
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#first_line
+{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    text-transform: uppercase;
+    line-height: 60px;
+    font-size: 8em;
+    font-weight: 700;
+    color: #03fcd7;
+    text-shadow: 0px 0.5rem 0px #fc03a9,
+    0px -0.1rem 0.3rem #03fcd7;
+    animation: texto 0.2s;
+}
+span
+{
+    position: relative;
+    font-size: 3rem;
+    color: #03fcd7;
+    text-shadow: 0px 0.3rem 0px #fc03a9,
+    0px -0.1rem 0.3rem #03fcd7;
+    
+}
+#jao
+{
+    color: #fceb03;
+    text-shadow: 0px 0.3rem 0px #fc6703,
+    0px -0.1rem 0.3rem #fceb03;
+}
+.butao
+{
+    margin: 15px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: none;
+    outline: none;
+    border: none;
+    color: #33ff00;
+    text-shadow: 0px 0.3rem 0px #008500,
+    0px -0.1rem 0.3rem #33ff00;
+    padding: -1px;
+    cursor: pointer;
+    width: auto;
+    transition: all 0.5s ;
+}
+#b1
+{
+    position: absolute;
+    top: 42%;
+    left: 5%;
+    animation: texto 0.4s;
+}
+#b2
+{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    animation: texto 0.6s;
+}
+#b3
+{
+    position: absolute;
+    left: 5%;
+    top: 58%;
+    animation: texto 0.8s;
+}
+.butao span
+{
+    display: none;
+}
+.butao:hover span
+{
+    display:inline;
+}
+#me
+{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color: #fff200;
+    text-shadow: 0px 0.2rem 0px #fc6703,
+    0px -0.1rem 0.2rem #fceb03;;
+    font-size: 1.5rem;
+    font-weight: 1;
+    animation: texto 1s;
+}
+#name_span
+{
+    font-size: 1.5rem;
+    color: #03fcd7;
+    text-shadow: 0px 0.2rem 0px #fc03a9,
+    0px -0.1rem 0.2rem #03fcd7;
+}
+@keyframes texto
+{
+    from{left: -100%;}
+}
+.bg
+{
+    z-index: -1000;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(assets/62fa98b099d6ddc.png);
+    background-size:contain;
+    filter: saturate(300%) brightness(100%) hue-rotate(-10deg);
+    animation: bg 100s linear infinite ;
+}
+@keyframes bg
+{
+    0%{background-position: 0 0;}
+    100%{background-position: 100vw 0;}
+}
+input
+{
+    display: none;
 }
 #main{
     position: absolute;
-    bottom: -100%;
+    top: -100%;
     width: 100vw;
     height: 100vh;
-    transition: bottom 2s;
+    transition: top 2s;
     background-color: rgb(0, 0, 0);
   }
+#pull:checked ~ #main
+{
+  display: block;
+  top: 0;
+}
