@@ -28,7 +28,7 @@ body
     font-weight: 700;
     color: #03fcd7;
     text-shadow: 0px 0.5rem 0px #fc03a9,
-    0px -0.1rem 0.3rem #03fcd7;
+    0px -0.1rem 0.4rem #03fcd7;
     animation: texto 0.2s;
 }
 span
@@ -56,13 +56,13 @@ span
     border: none;
     color: #33ff00;
     text-shadow: 0px 0.3rem 0px #008500,
-    0px -0.1rem 0.3rem #33ff00;
+    0px -0.1rem 0.4rem #33ff00;
     padding: -1px;
     cursor: pointer;
     width: auto;
     transition: all 0.5s ;
     transform-style: preserve-3d;
-    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+    transition: all 1s; 
 }
 #b1
 {
@@ -124,9 +124,8 @@ span
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-image: url(assets/62fa98b099d6ddc.png);
-    background-size:contain;
-    animation: bg 30s linear infinite ;
+    background:url(assets/62fa98b099d6ddc.png) repeat-x 0 / 100% auto;
+    animation: bg 40s linear infinite ;
 }
 @keyframes bg
 {
@@ -137,21 +136,68 @@ input
 {
     display: none;
 }
-#main{
-    position: absolute;
-    top: -100%;
-    width: 100vw;
-    height: 100vh;
-    transition: top 2s;
-    background-color: rgb(0, 0, 0);
-  }
-#pull:checked ~ #main
-{
-  top: 0;
-}
+
 #opcoes:checked ~ #options
 {
   right: 5%;
 }
+#options
+{
+    position: absolute;
+    top: 10%;
+    right: -100%;
+    width: 25%;
+    height: 80%;
+    transition: right 0.5s;
+    border: 5px solid white;
+    background-image: url(/assets/62fa98b099d6ddc.png);
+    background-size: cover;
+    animation: bg 60s linear infinite ;
+    background-position-y: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 50px;
+  }
+#options p
+{
+    color: #03fcd7;
+    text-shadow: 0px 0.3rem 0px #fc03a9,
+    0px -0.1rem 0.2rem #03fcd7;
+    font-size: 4rem;
+}
+#close p
+{
+    color: #ff1414;
+    text-shadow: 0px 0.15rem 0px #7c0000,
+    0px -0.1rem 0.2rem #ff1414;
+    font-size: 1.5rem;
+}
+.slider 
+{
+  -webkit-appearance: none;
+  display: block;
+  width: 80%;
+  height: 15px;
+  background: none;
+  outline: none;
+  box-shadow: 0px 0.3rem 0px #fc6703,
+  0px -0.1rem 0.3rem #fceb03;
+  border: 5px solid #fceb03;
+}
+.slider::-webkit-slider-thumb
+{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10%;
+  height: 5vh;
+  cursor: pointer;
+  box-shadow: 0px 0.3rem 0px #fc6703,
+  0px -0.1rem 0.3rem #fceb03;
+  border: 5px solid #fceb03;
+  background: #fceb03;
+}
+
 
 
