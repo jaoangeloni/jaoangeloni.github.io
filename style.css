@@ -1,130 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=VT323&display=swap');
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'VT323', monospace;
-    list-style: none;
 }
 body
 {
     overflow: hidden;
 }
-.start_menu
-{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-#first_line
-{
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    text-transform: uppercase;
-    line-height: 60px;
-    font-size: 8em;
-    font-weight: 700;
-    color: #03fcd7;
-    text-shadow: 0px 0.5rem 0px #fc03a9,
-    0px -0.1rem 0.4rem #03fcd7;
-    animation: texto 0.2s;
-}
-span
-{
-    position: relative;
-    font-size: 3rem;
-    color: #03fcd7;
-    text-shadow: 0px 0.3rem 0px #fc03a9,
-    0px -0.1rem 0.3rem #03fcd7;
-    
-}
-#jao
-{
-    color: #fceb03;
-    text-shadow: 0px 0.3rem 0px #fc6703,
-    0px -0.1rem 0.3rem #fceb03;
-}
-.butao
-{
-    margin: 15px;
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: none;
-    outline: none;
-    border: none;
-    color: #33ff00;
-    text-shadow: 0px 0.3rem 0px #008500,
-    0px -0.1rem 0.4rem #33ff00;
-    padding: -1px;
-    cursor: pointer;
-    width: auto;
-    transition: all 0.5s ;
-    transform-style: preserve-3d;
-    transition: all 1s; 
-}
-#b1
-{
-    position: absolute;
-    top: 42%;
-    left: 5%;
-    animation: texto 0.4s;
-}
-#b2
-{
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    animation: texto 0.6s;
-}
-#b3
-{
-    position: absolute;
-    left: 5%;
-    top: 58%;
-    animation: texto 0.8s;
-}
-.butao span
-{
-    display: none;
-}
-.butao:hover span
-{
-    display:inline;
-}
-#me
-{
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    color: #fff200;
-    text-shadow: 0px 0.15rem 0px #fc6703,
-    0px -0.1rem 0.2rem #fceb03;;
-    font-size: 1.5rem;
-    font-weight: 1;
-    animation: texto 1s;
-}
-#name_span
-{
-    font-size: 1.5rem;
-    color: #03fcd7;
-    text-shadow: 0px 0.15rem 0px #fc03a9,
-    0px -0.1rem 0.2rem #03fcd7;
-}
-@keyframes texto
-{
-    from{left: -100%;}
-}
 .bg
 {
-    z-index: -1000;
+    position: absolute;
     top: 0;
     left: 0;
-    position: absolute;
+    z-index: -50;
     width: 100vw;
     height: 100vh;
-    background:url(assets/62fa98b099d6ddc.png) repeat-x 0 / 100% auto;
+    background:url(assets/noite.png) repeat-x 0 / 100% auto;
     animation: bg 40s linear infinite ;
 }
 @keyframes bg
@@ -132,72 +24,33 @@ span
     0%{background-position: 0 0;}
     100%{background-position: 100vw 0;}
 }
-input
+.menu
 {
-    display: none;
-}
-
-#opcoes:checked ~ #options
-{
-  right: 5%;
-}
-#options
-{
-    position: absolute;
-    top: 10%;
-    right: -100%;
-    width: 25%;
-    height: 80%;
-    transition: right 0.5s;
-    border: 5px solid white;
-    background-image: url(/assets/62fa98b099d6ddc.png);
-    background-size: cover;
-    animation: bg 60s linear infinite ;
-    background-position-y: center;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 50px;
-  }
-#options p
-{
-    color: #03fcd7;
-    text-shadow: 0px 0.3rem 0px #fc03a9,
-    0px -0.1rem 0.2rem #03fcd7;
-    font-size: 4rem;
+    justify-content: center;
+    width: 50%;
+    height: 100vh; */
 }
-#close p
+.area
 {
-    color: #ff1414;
-    text-shadow: 0px 0.15rem 0px #7c0000,
-    0px -0.1rem 0.2rem #ff1414;
-    font-size: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
 }
-.slider 
+.planet
 {
-  -webkit-appearance: none;
-  display: block;
-  width: 80%;
-  height: 15px;
-  background: none;
-  outline: none;
-  box-shadow: 0px 0.3rem 0px #fc6703,
-  0px -0.1rem 0.3rem #fceb03;
-  border: 5px solid #fceb03;
-}
-.slider::-webkit-slider-thumb
-{
-  -webkit-appearance: none;
-  appearance: none;
-  width: 10%;
-  height: 5vh;
-  cursor: pointer;
-  box-shadow: 0px 0.3rem 0px #fc6703,
-  0px -0.1rem 0.3rem #fceb03;
-  border: 5px solid #fceb03;
-  background: #fceb03;
-}
+    width: 200px;
+    height: 200px;
+    border-radius: 300px;
+    /* box-shadow: 0px 0rem 0.9rem #03dffc;
+    background-color: #03dffc83; */
 
-
-
+}
+img
+{
+    width: 200px;
+}
