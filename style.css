@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=VT323&display=swap');
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'VT323', monospace;
 }
 body
 {
@@ -17,7 +19,10 @@ body
     width: 100vw;
     height: 100vh;
     background:url(assets/noite.png) repeat-x 0 / 100% auto;
+    background-size: cover;
     animation: bg 40s linear infinite ;
+    transition: all 0s;
+    transition-delay: 1.2s;
 }
 @keyframes bg
 {
@@ -26,31 +31,168 @@ body
 }
 .menu
 {
-    /* display: flex;
+    position: absolute;
+    top: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    height: 100vh; */
+    width: 100vw;
+    height: 50%;
+    margin: 10px 100px 50px 100px;
+    user-select: none;
+    animation: animate 2s;
 }
-.area
+.menu p
 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 100vh;
+    text-transform: uppercase;
+    font-weight: 1000;
+    line-height: 60px;
+    letter-spacing: -5px;
 }
-.planet
+.letter
 {
-    width: 200px;
-    height: 200px;
-    border-radius: 300px;
-    /* box-shadow: 0px 0rem 0.9rem #03dffc;
-    background-color: #03dffc83; */
+    font-size: 9rem;
+    color: #00F5FF;
+    text-shadow: 0px 0.6rem 0px #ff0088,
+    0px -0.1rem 0.3rem #00F5FF; 
+    cursor: pointer;
+    transition: all 50ms;
+}
+.letter:hover
+{
+    font-size: 9.5rem;
+    color: #FCE700;
+    text-shadow: 0px 0.9rem 0px #FF6D28,
+    0px -0.1rem 0.5rem #FCE700;
+}
+.letter:not(:hover)
+{
+    transition: all 0.2s 2s;
+}
+#to
+{
+    font-size: 5rem;
+    color: #00F5FF;
+    text-shadow: 0px 0.5rem 0px #ff0088,
+    0px -0.1rem 0.2rem #00F5FF; 
+    font-weight: 1000;
+    letter-spacing: -16px;
+    transition: all 50ms;
+}
+#to:hover
+{
 
 }
-img
+#jao
 {
-    width: 200px;
+    font-size: 5rem;
+    letter-spacing: -3px;
+    animation: rgb 2s infinite;
+}
+@keyframes rgb
+{
+    
+    0%{
+        color: #fceb03;
+        text-shadow: 0px 0.5rem 0px #fc6703,
+        0px -0.1rem 0.1rem #fceb03;
+    }
+    25%{
+        color: #ff0088;
+        text-shadow: 0px 0.5rem 0px #861b64,
+        0px -0.1rem 0.1rem #ff0088;}
+    50%{
+        color: #88ff00;
+        text-shadow: 0px 0.5rem 0px #1f8b2c,
+        0px -0.1rem 0.1rem #88ff00;}
+    75%{
+        color: #00F5FF;
+        text-shadow: 0px 0.5rem 0px #332FD0,
+        0px -0.1rem 0.1rem #00F5FF;
+    }
+    100%{
+        color: #fceb03;
+        text-shadow: 0px 0.5rem 0px #fc6703,
+        0px -0.1rem 0.1rem #fceb03;
+    }
+}
+label
+{
+    user-select: none;
+}
+#night
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px 25px;
+    cursor: pointer;
+    z-index: 10;
+}
+#day
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: 15px 25px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+}
+input
+{
+    display: none;
+}
+#modeicon
+{
+    width: 100px;
+}
+#mode
+{
+    font-size: 2rem;
+    color: #fceb03;
+    text-shadow: 0px 0.2rem 0px #fc6703,
+    0px -0.1rem 0.1rem #fceb03;
+}
+#button:checked ~ #night
+{
+    display: none;
+}
+#button:checked ~ .bg
+{
+    background:url(assets/dia.png) repeat-x 0 / 100% auto;
+    background-size:cover;
+    transition-delay: 1s;
+}
+#button:checked ~ #day
+{
+    display: flex;
+}
+#button2:checked ~ .bg
+{
+    background:url(assets/noite.png) repeat-x 0 / 100% auto;
+    background-size: cover;
+}
+#button2:checked ~ #night
+{
+    display: flex;
+}
+#button:checked ~ #transition
+{
+    left: 200%;
+}
+#transition
+{
+    position: absolute;
+    top: 0;
+    left: -200%;
+    background-color: black;
+    width: 200vw;
+    height: 100vh;
+    transition: left 2s ease-in-out;
+    z-index: 100;
 }
