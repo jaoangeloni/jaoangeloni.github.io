@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'VT323', monospace;
+    user-select: none;
 }
 body
 {
@@ -38,9 +39,9 @@ body
     justify-content: center;
     width: 100vw;
     height: 50%;
-    margin: 10px 100px 50px 100px;
+    margin: 0px 100px 50px 100px;
     user-select: none;
-    animation: animate 2s;
+
 }
 .menu p
 {
@@ -53,10 +54,10 @@ body
 {
     font-size: 9rem;
     color: #00F5FF;
-    text-shadow: 0px 0.6rem 0px #ff0088,
-    0px -0.1rem 0.3rem #00F5FF; 
+    text-shadow: 0px 0.6rem 0px #ff0088;
     cursor: pointer;
     transition: all 50ms;
+    
 }
 .letter:hover
 {
@@ -67,27 +68,42 @@ body
 }
 .letter:not(:hover)
 {
-    transition: all 0.2s 2s;
+    transition: all 0.2s 1s;
 }
-#to
+.to
 {
     font-size: 5rem;
     color: #00F5FF;
-    text-shadow: 0px 0.5rem 0px #ff0088,
-    0px -0.1rem 0.2rem #00F5FF; 
+    text-shadow: 0px 0.5rem 0px #ff0088;
     font-weight: 1000;
-    letter-spacing: -16px;
     transition: all 50ms;
+    cursor: pointer;
 }
-#to:hover
+.to:hover
 {
-
+    font-size: 6.5rem;
+    color:#FCE700;
+    text-shadow: 0px 0.6rem 0px #FF6D28,
+    0px -0.1rem 0.5rem #FCE700;
 }
-#jao
+.to:not(:hover)
+{
+    transition: all 0.2s 1s;
+}
+.jao
 {
     font-size: 5rem;
     letter-spacing: -3px;
     animation: rgb 2s infinite;
+    cursor: pointer;
+}
+.jao:hover
+{
+    font-size: 6.5rem;
+}
+.jao:not(:hover)
+{
+    transition: all 0.2s 1s;
 }
 @keyframes rgb
 {
@@ -95,27 +111,30 @@ body
     0%{
         color: #fceb03;
         text-shadow: 0px 0.5rem 0px #fc6703,
-        0px -0.1rem 0.1rem #fceb03;
+        0px -0.1rem 0.2rem #fceb03;
     }
     25%{
         color: #ff0088;
         text-shadow: 0px 0.5rem 0px #861b64,
-        0px -0.1rem 0.1rem #ff0088;}
+        0px -0.1rem 0.2rem #ff0088;}
     50%{
         color: #88ff00;
         text-shadow: 0px 0.5rem 0px #1f8b2c,
-        0px -0.1rem 0.1rem #88ff00;}
+        0px -0.1rem 0.2rem #88ff00;}
     75%{
         color: #00F5FF;
         text-shadow: 0px 0.5rem 0px #332FD0,
-        0px -0.1rem 0.1rem #00F5FF;
+        0px -0.1rem 0.2rem #00F5FF;
     }
     100%{
         color: #fceb03;
         text-shadow: 0px 0.5rem 0px #fc6703,
-        0px -0.1rem 0.1rem #fceb03;
+        0px -0.1rem 0.2rem #fceb03;
     }
 }
+
+
+
 label
 {
     user-select: none;
@@ -127,9 +146,27 @@ label
     left: 0;
     display: flex;
     align-items: center;
-    margin: 15px 25px;
+    margin: 50px;
     cursor: pointer;
     z-index: 10;
+    color: #88ff00;
+    text-shadow: 0px 0.4rem 0px #186921;
+    border: 4px solid #88ff00;
+    background: #000801;
+    box-shadow: 0px 0.3rem 0px #186921;
+    padding-right: 16px;
+}
+#night:hover
+{
+    border: 4px solid #fceb03;
+    background: #080700;
+    box-shadow: 0px 0.3rem 0px #fc6703; 
+    transform: translate(10px);
+}
+#night:hover #modenight
+{
+    color: #fceb03;
+    text-shadow: 0px 0.2rem 0px #fc6703;
 }
 #day
 {
@@ -142,6 +179,23 @@ label
     cursor: pointer;
     z-index: 10;
     display: none;
+    border: 5px solid #e01a1a;
+    background: #e01a1a;
+    box-shadow: 0px 0.5rem 0px #570303;
+    padding-right: 16px;
+    margin: 50px;
+}
+#day:hover
+{
+    border: 5px solid #e7d82b;
+    background: #e7d82b;
+    box-shadow: 0px 0.5rem 0px #e7702b;
+    transform: translate(10px);
+}
+#day:hover #modeday
+{
+    color: #e01a1a;
+    text-shadow: 0px 0.2rem 0px #570303;
 }
 input
 {
@@ -149,14 +203,20 @@ input
 }
 #modeicon
 {
-    width: 100px;
+    width:70px;
 }
-#mode
+#modenight
 {
     font-size: 2rem;
-    color: #fceb03;
-    text-shadow: 0px 0.2rem 0px #fc6703,
-    0px -0.1rem 0.1rem #fceb03;
+    color: #88ff00;
+    text-shadow: 0px 0.2rem 0px #186921;
+}
+#modeday
+{
+    font-size: 2rem;
+    font-weight: 800;
+    color: #e7d82b;
+    text-shadow: 0px 0.2rem 0px #e7702b;
 }
 #button:checked ~ #night
 {
@@ -195,4 +255,163 @@ input
     height: 100vh;
     transition: left 2s ease-in-out;
     z-index: 100;
+}
+
+
+
+#things
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 5rem;
+}
+#start
+{
+    display: inline-block;
+    font-size: 5rem;
+    color: #88ff00;
+    text-shadow: 0px 0.4rem 0px #186921,
+    0px -0.1rem 0.1rem #88ff00;
+    border: 5px solid #88ff00 ;
+    background: #020800;
+    box-shadow: 0px 0.5rem 0px #186921;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: 1000;
+    z-index: 9;
+    transition: all 0.1s 1.5s;
+    transition-delay: 0s;
+}
+#start:hover
+{
+    margin-top: 5px;
+    color: #ff0000;
+    text-shadow: 0px 0.4rem 0px #4d0000,
+    0px -0.1rem 0.5rem #ff0000;
+    border: 5px solid #ff0000;
+    background: #080000;
+    box-shadow: 0px 0.5rem 0px #4d0000,
+    0px -0.1rem 0.3rem #ff0000;
+    font-weight: 1000;
+}
+#start:not(:hover)
+{
+
+}
+#sure
+{
+    display: none;
+}
+#start:hover #doubt
+{
+    display: none;
+}
+#start:hover #sure
+{
+    display: inline-block;
+}
+#advice
+{
+    font-size: 1.5rem;
+    margin: 50px;
+    color: #00F5FF;
+    text-shadow: 0px 0.15rem 0px #ff0088;
+    transition: all 0.1s;
+    cursor: pointer;
+    font-weight: 1000;
+}
+#advice:hover
+{
+    font-size: 1.6rem;
+    color: #00F5FF;
+    text-shadow: 0px 0.15rem 0px #ff0088,
+    0px -0.1rem 0.2rem;
+}
+#me
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 2rem;
+    margin: 50px;
+    color: #00F5FF;
+    text-shadow: 0px 0.2rem 0px #ff0088,
+    0px 0rem 0.1rem #00F5FF;
+    font-weight: 800;
+}
+
+
+
+#button:checked ~ .menu .letter
+{
+    color: #e7d82b;
+    text-shadow: 0px 0.9rem 0px #e7702b;
+    transition: all 50ms;
+    transition-delay:0s ;
+}
+#button:checked ~ .menu .letter:hover
+{
+    font-size: 9.5rem;
+    color: #e01a1a;
+    text-shadow: 0px 1rem 0px #570303;
+}
+#button:checked ~ .menu .letter:not(:hover)
+{
+    transition: all 0.2s 1s;
+}
+#button:checked ~ .menu .to
+{
+    color: #e7d82b;
+    text-shadow: 0px 0.5rem 0px #e7702b;
+    transition: all 50ms;
+}
+#button:checked ~ .menu .to:hover
+{
+    font-size: 6rem;
+    color: #e01a1a;
+    text-shadow: 0px 0.5rem 0px #570303;
+}
+#button:checked ~ .menu .to:not(:hover)
+{
+    transition: all 0.2s 1s;
+}
+#button:checked ~ #things #advice
+{
+    font-size: 1.5rem;
+    font-weight: 1000;
+    color: #e01a1a;
+    text-shadow: 0px 0.1rem 0px #570303;
+}
+#button:checked ~ #me
+{
+    color: #e01a1a;
+    text-shadow: 0px 0.2rem 0px #570303;
+    font-weight: 1000;
+}
+#button:checked ~ #things #start
+{
+    display: inline-block;
+    font-size: 5rem;
+    color: #e7d82b;
+    text-shadow: 0px 0.4rem 0px #e7702b;
+    border: 5px solid #e01a1a;
+    background: #e01a1a;
+    box-shadow: 0px 0.5rem 0px #570303;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: 1000;
+    z-index: 9;
+}
+#button:checked ~ #things #start:hover
+{
+    color: #e01a1a;
+    text-shadow: 0px 0.4rem 0px #570303;
+    border: 5px solid #e7d82b;
+    background: #e7d82b;
+    box-shadow: 0px 0.5rem 0px #e7702b;
+    font-weight: 1000;
 }
