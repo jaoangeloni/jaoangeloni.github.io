@@ -184,14 +184,18 @@ button:active {
 }
 
 @media (max-width: 400px) {
-    body
+    main
     {
-        overflow: h;
+        height: 100vh;
     }
     .frame
     {
         width: 350px;
-        height: 600px;
+        height: 550px;
         border: none;
+    }
+    #id
+    {
+        margin-top: 50px;
     }
 }
