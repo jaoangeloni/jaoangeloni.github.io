@@ -1,3 +1,4 @@
+
 function isOperator(value) {
     return value === "/" || value === "*" || value === "-" || value === "+";
   }
@@ -13,39 +14,69 @@ function isOperator(value) {
   
   function calc(val) {
     let screen = document.getElementById("screen").value;
-    let lastChar = screen[screen.length - 1];
-    let operatorCount = 0;
-  
+    let result = 0;
+    let temp = '';
+    let operator = '';
+    
     for (let i = 0; i < screen.length; i++) {
-      if (isOperator(screen[i])) {
-        operatorCount++;
+      if (isNumber(screen[i]) || screen[i] === '.') {
+        temp += screen[i];
+      } else if (isOperator(screen[i])) {
+        result = performCalculation(result, temp, operator);
+        operator = screen[i];
+        temp = '';
       }
     }
-    if (operatorCount <= 1 && isNumber(lastChar)) {
-      document.getElementById("screen").value = eval(screen);
-    }
+    
+    result = performCalculation(result, temp, operator);
+    document.getElementById("screen").value = result;
   }
   
-  function backspace() {
-    var screen = document.getElementById("screen");
-    screen.value = screen.value.substring(0, screen.value.length - 1);
-  }
-  
-  function show(value) {
+  function performCalculation(result, temp, operator) {
+    temp = parseFloat(temp);
+    
+    switch (operator) {
+      case '+':
+        result += temp;
+        break;
+        case '-':
+          result -= temp;
+          break;
+          case '*':
+            result *= temp;
+            break;
+            case '/':
+              result /= temp;
+              break;
+              default:
+                result = temp;
+                break;
+              }
+              
+              return result;
+            }
+            
+            function backspace() {
+              var screen = document.getElementById("screen");
+              screen.value = screen.value.substring(0, screen.value.length - 1);
+            }
+            
+            function show(value) {
     var screen = document.getElementById("screen");
     var lastCharacter = screen.value[screen.value.length - 1];
     var operators = ["+", "-", "*", "/"];
     var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
-    if (!operators.includes(lastCharacter) || screen.value.length === 0) {
-      if (operators.includes(value) || numbers.includes(lastCharacter) || screen.value.length === 0) {
+    
+    if (operators.includes(lastCharacter) || screen.value.length === 0) {
+      if (numbers.includes(value)) {
         screen.value += value;
       }
-    } else if (numbers.includes(value)) {
+    } else if (numbers.includes(lastCharacter) || operators.includes(value)) {
       screen.value += value;
     }
-}
-
-document.addEventListener("keydown", function(event) {
+  }
+  
+  document.addEventListener("keydown", function(event) {
     if (event.code === "Digit1") {
       show("1");
     } else if (event.code === "Digit2") {
@@ -80,4 +111,19 @@ document.addEventListener("keydown", function(event) {
     else if (event.code === "Backspace") {
       backspace();
     }
-});
+  });
+
+  let on = true;
+
+  function turnOn() {
+    let buttons = document.querySelectorAll("button:not(#toggleBtn)");
+    let toggleBtn = document.querySelector("#toggleBtn");
+
+    if (toggleBtn.innerHTML === "ON") {
+      toggleBtn.innerHTML = "OFF";
+      buttons.forEach(button => button.disabled = true);
+    } else {
+      toggleBtn.innerHTML = "ON";
+      buttons.forEach(button => button.disabled = false);
+    }
+  }

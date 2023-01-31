@@ -12,9 +12,9 @@
         <p>The Calculator</p>
         <div class="frame">
             <div class="calculator">
-                <input type="text" class="screen" id="screen" placeholder="0">
+                <input type="text" class="screen" id="screen" placeholder="0" readonly="readonly">
                 <div class="row">
-                    <button class="on" onclick="turon('')">ON</button>
+                    <button class="on" id="toggleBtn" onclick="turnOn()">OFF</button>
                     <button class="symbol" onclick="wipe()">AC</button>
                     <button class="symbol" onclick="backspace()">DE</button>
                     <button class="symbol" onclick="show('/')">/</button>
