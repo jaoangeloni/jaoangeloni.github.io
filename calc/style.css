@@ -63,7 +63,7 @@ main
 {
     outline: none;
     border: none;
-    box-shadow: 0px -10px 0 #192b29 ;
+    box-shadow: 0px -10px 0 #323050 ;
     width: 100%;
     height: 70px;
     border-radius: 10px;
@@ -79,6 +79,10 @@ main
 ::placeholder
 {
     color: #136d61;
+}
+.screenoff
+{
+    background-color: #969696;
 }
 .row
 {
@@ -124,6 +128,24 @@ button:active {
     box-shadow: 0 7px 0 #026300,
     0 10px 0 #323050;   
 }
+.off
+{
+    color: #580000;
+    background: linear-gradient(#ff4848,#ff0000);
+    box-shadow:0 10px 0 #580000,  
+    0 13px 0 #323050;   
+}
+.off:hover
+{
+    color: #580000;
+    box-shadow: 0 10px 0 #580000,  
+    0 13px 0 #323050; 
+}
+.off:active {
+    transform: translateY(5px);
+    box-shadow: 0 7px 0 #580000,
+    0 10px 0 #323050;   
+}
 .number
 {
     color: #0066ff;
@@ -138,10 +160,17 @@ button:active {
     box-shadow: 0 10px 0 #0400ff,  
     0 13px 0 #323050; 
 }
-.number:active {
+.number:active 
+{
     transform: translateY(5px);
     box-shadow: 0 7px 0 #0400ff,
     0 10px 0 #323050;   
+}
+.numoff
+{
+    color: #0400ff;
+    box-shadow: 0 10px 0 #0400ff,  
+    0 13px 0 #323050; 
 }
 .symbol
 {
@@ -161,6 +190,11 @@ button:active {
     transform: translateY(5px);
     box-shadow: 0 7px 0 #ff0000,
     0 10px 0 #323050;   
+}
+.symoff {
+    color: #ff0000;
+    box-shadow: 0 10px 0 #ff0000,  
+    0 13px 0 #323050; 
 }
 .equals
 {
@@ -182,6 +216,12 @@ button:active {
     transform: translateY(5px);
     box-shadow: 0 7px 0 #580000,
     0 10px 0 #323050;   
+}
+.equaloff
+{
+    color: #580000;
+    box-shadow: 0 10px 0 #580000,  
+    0 13px 0 #323050;  
 }
 
 @media (max-width: 400px) {

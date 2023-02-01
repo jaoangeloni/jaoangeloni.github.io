@@ -113,17 +113,46 @@ function isOperator(value) {
     }
   });
 
-  let on = true;
+  let buttons = document.querySelectorAll("button:not(#toggleBtn)");
+  buttons.forEach(button => button.disabled = true);
+
+  var nums = document.querySelectorAll(".number")
+  for(i = 0; i < nums.length; i++)
+    nums[i].classList.add ("numoff")
+
+  var symbol = document.querySelectorAll(".symbol")
+  for(i = 0; i < symbol.length; i++)
+    symbol[i].classList.add ("symoff")
+
+  var equal = document.querySelector(".equals")
+  equal.classList.add ("equaloff")
+
+  var tela = document.querySelector(".screen")
+  tela.classList.add ("screenoff")
+  tela.placeholder.style.color = "#969696";
 
   function turnOn() {
-    let buttons = document.querySelectorAll("button:not(#toggleBtn)");
     let toggleBtn = document.querySelector("#toggleBtn");
 
-    if (toggleBtn.innerHTML === "ON") {
-      toggleBtn.innerHTML = "OFF";
-      buttons.forEach(button => button.disabled = true);
-    } else {
+    if (toggleBtn.innerHTML == "OFF") {
       toggleBtn.innerHTML = "ON";
+      toggleBtn.className = "on"
       buttons.forEach(button => button.disabled = false);
+      for(i = 0; i < nums.length; i++)
+        nums[i].classList.remove ("numoff")
+      for(i = 0; i < symbol.length; i++)
+        symbol[i].classList.remove ("symoff")
+      equal.classList.remove ("equaloff")
+      tela.classList.remove ("screenoff")
+    } else {
+      toggleBtn.innerHTML = "OFF";
+      toggleBtn.className = "off"
+      buttons.forEach(button => button.disabled = true);
+      for(i = 0; i < nums.length; i++)
+        nums[i].classList.add ("numoff")
+      for(i = 0; i < symbol.length; i++)
+        symbol[i].classList.add ("symoff")
+      equal.classList.add ("equaloff")
+      tela.classList.add ("screenoff")
     }
   }
