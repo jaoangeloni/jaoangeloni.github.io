@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Calculator</title>
+    <title translate="no">The Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <p>The Calculator</p>
+        <p translate="no">The Calculator</p>
         <div class="frame">
             <div class="calculator">
                 <input type="text" class="screen" id="screen" placeholder="0" readonly="readonly">
                 <div class="row">
-                    <button class="off" id="toggleBtn" onclick="turnOn()">OFF</button>
-                    <button class="symbol" onclick="wipe()">AC</button>
+                    <button class="off" id="toggleBtn" onclick="turnOn()" translate="no">OFF</button>
+                    <button class="symbol" onclick="wipe()" translate="no">AC</button>
                     <button class="symbol" onclick="backspace()">DE</button>
                     <button class="symbol" onclick="show('/')">/</button>
                 </div>
