@@ -12,61 +12,75 @@ function isOperator(value) {
     screen.value = '';
   }
   
-  function calc(val) {
+  function calc() {
     let screen = document.getElementById("screen").value;
     let result = 0;
     let temp = '';
     let operator = '';
-    
+    let operatorPrecedence = {
+      '*': 1,
+      '/': 1,
+      '+': 0,
+      '-': 0
+    };
+    let calculationStack = [];
+  
     for (let i = 0; i < screen.length; i++) {
       if (isNumber(screen[i]) || screen[i] === '.') {
         temp += screen[i];
       } else if (isOperator(screen[i])) {
-        result = performCalculation(result, temp, operator);
-        operator = screen[i];
+        calculationStack.push(parseFloat(temp));
         temp = '';
+        while (calculationStack.length > 1 && operatorPrecedence[calculationStack[calculationStack.length - 2]] >= operatorPrecedence[screen[i]]) {
+          result = performCalculation(calculationStack[calculationStack.length - 2], calculationStack[calculationStack.length - 1], calculationStack[calculationStack.length - 3]);
+          calculationStack.pop();
+          calculationStack.pop();
+          calculationStack.pop();
+          calculationStack.push(result);
+        }
+        calculationStack.push(screen[i]);
       }
     }
-    
-    result = performCalculation(result, temp, operator);
+  
+    calculationStack.push(parseFloat(temp));
+  
+    while (calculationStack.length > 1) {
+      result = performCalculation(calculationStack[calculationStack.length - 2], calculationStack[calculationStack.length - 1], calculationStack[calculationStack.length - 3]);
+      calculationStack.pop();
+      calculationStack.pop();
+      calculationStack.pop();
+      calculationStack.push(result);
+    }
+  
     document.getElementById("screen").value = result;
   }
   
-  function performCalculation(result, temp, operator) {
-    temp = parseFloat(temp);
-    
+  function performCalculation(operator, b, a) {
     switch (operator) {
       case '+':
-        result += temp;
-        break;
-        case '-':
-          result -= temp;
-          break;
-          case '*':
-            result *= temp;
-            break;
-            case '/':
-              result /= temp;
-              break;
-              default:
-                result = temp;
-                break;
-              }
-              
-              return result;
-            }
-            
-            function backspace() {
-              var screen = document.getElementById("screen");
-              screen.value = screen.value.substring(0, screen.value.length - 1);
-            }
-            
-            function show(value) {
-    var screen = document.getElementById("screen");
-    var lastCharacter = screen.value[screen.value.length - 1];
-    var operators = ["+", "-", "*", "/"];
-    var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
-    
+        return a + b;
+      case '-':
+        return a - b;
+      case '*':
+        return a * b;
+      case '/':
+        return a / b;
+      default:
+        return b;
+    }
+  }
+  
+  function backspace() {
+    let screen = document.getElementById("screen");
+    screen.value = screen.value.substring(0, screen.value.length - 1);
+  }
+  
+  function show(value) {
+    let screen = document.getElementById("screen");
+    let lastCharacter = screen.value[screen.value.length - 1];
+    let operators = ["+", "-", "*", "/"];
+    let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+  
     if (operators.includes(lastCharacter) || screen.value.length === 0) {
       if (numbers.includes(value)) {
         screen.value += value;
@@ -129,7 +143,7 @@ function isOperator(value) {
 
   var tela = document.querySelector(".screen")
   tela.classList.add ("screenoff")
-  tela.placeholder.style.color = "#969696";
+  
 
   function turnOn() {
     let toggleBtn = document.querySelector("#toggleBtn");
@@ -144,6 +158,7 @@ function isOperator(value) {
         symbol[i].classList.remove ("symoff")
       equal.classList.remove ("equaloff")
       tela.classList.remove ("screenoff")
+      tela.value = ''
     } else {
       toggleBtn.innerHTML = "OFF";
       toggleBtn.className = "off"
@@ -154,5 +169,6 @@ function isOperator(value) {
         symbol[i].classList.add ("symoff")
       equal.classList.add ("equaloff")
       tela.classList.add ("screenoff")
+      tela.value = ''
     }
   }
