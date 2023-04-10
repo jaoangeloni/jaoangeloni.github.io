@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:linear-gradient(to right bottom, #6b22ac,#ff8248);
+}   
+#header{
+    height: 40%;
+    width: 80%;
+    margin: 20px;
+    border-radius: 20px;
+    background-image: url('assets/BG.jpg');
+    background-size: 48%;
+    animation: bg 120s linear infinite;
+}
+@keyframes bg
+{
+    0%{background-position: 0 0;}
+    100%{background-position: 100vw 0;}
+}
+.container{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: brightness(60%);
+}
+.card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+#header h1{
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 3px 3px black;
+    margin: 30px;
+}
+
+#header p{
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 2px 2px black;
+}
+#header input{
+    width: 15rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 10px;
+    margin: 20px;
+}
+#header button{
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    background: none;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/45/45537.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    filter: invert();
+}
+#main{
+    height: 40%;
+    width: 80%;
+    margin: 20px;
+    border-radius: 20px;
+}
+.cardao{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: brightness(60%);
+    border-radius: 20px;
+    gap: 20px;
+}
+#card1{
+    gap: 5px;
+    padding-right: 20px;
+    border-right: 1px solid black;
+}
+#card1 div{
+    display: flex;
+    align-items: center;
+}
+#card1 p{
+    font-size: 1.2rem
+}
+#nomeCidade{
+    font-size: 2rem;
+}
+#card1 img{
+    width: 60px;
+}
+#card2{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    gap: 5px;
+}
