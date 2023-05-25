@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=VT323&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'VT323';
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+#main{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:url(../assets/dia.png) repeat-x 0 / 100% auto;
+    background-size: cover;
+    animation: bg 40s linear infinite ;
+}
+@keyframes bg
+{
+    0%{background-position: 0 0;}
+    100%{background-position: 100vw 0;}
+}
+.j, .a, .o{
+    font-size: 8rem;
+    font-weight: bold;
+    user-select: none;
+    color: #ff335c;
+    text-shadow: 2px -2px 0 #9e0020,
+    4px -4px 0 #9e0020,
+    6px -6px 0 #9e0020,
+    8px -8px 0 #9e0020,
+    10px -10px 0 #9e0020,
+    12px -12px 0 #9e0020,
+    14px -14px 0 #9e0020;
+    cursor: pointer;
+    transition: text-shadow 0.2s, color 0.2s, font-size 0.2s;
+}
+
+.hover{
+    font-size: 10rem;
+    color: #ffae00;
+    text-shadow: 2px -2px 0 #ff6200,
+    4px -4px 0 #ff6200,
+    6px -6px 0 #ff6200,
+    8px -8px 0 #ff6200,
+    10px -10px 0 #ff6200,
+    12px -12px 0 #ff6200,
+    14px -14px 0 #ff6200;  
+}
